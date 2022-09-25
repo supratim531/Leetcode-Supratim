@@ -8,16 +8,13 @@ bool present(string &p) {
 class Solution {
 public:
     bool wordPattern(string pattern, string s) {
-        int space = 0;
-        for (auto &ele : s)
-            if (ele == ' ')
-                space++;
-        if (pattern.size() - 1 != space) return false;
         int i = 0;
         mp.clear();
+        int space = 0;
+        for (auto &ele : s) if (ele == ' ') space++;
+        if (pattern.size() - 1 != space) return false;
         string proxy = "";
-        for (int c = 0; c < 26; c++)
-            hsh[c] = 0;
+        for (int c = 0; c < 26; c++) hsh[c] = 0;
         for (int c = 0; c <= s.size(); c++) {
             char ele = s[c];
             if (ele == ' ' || ele == '\0') {
@@ -32,9 +29,7 @@ public:
                 proxy = "";
                 ++i;
             }
-            else {
-                proxy.push_back(ele);
-            }
+            else proxy.push_back(ele);
         }
         return true;
     }
