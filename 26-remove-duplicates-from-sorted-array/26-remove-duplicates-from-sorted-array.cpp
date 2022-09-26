@@ -11,12 +11,18 @@ public:
         for (auto &ele : nums)
             hsh[ele + least]++;
         int ans = 0;
-        vector<int> help;
-        for (int i = 0; i < N; ++i)
-            if (hsh[i])
-                ans++, help.push_back(i - least);
-        for (int i = 0; i < ans; ++i)
-            nums[i] = help[i];
+        // vector<int> help;
+        // for (int i = 0; i < N; ++i)
+        //     if (hsh[i])
+        //         ans++, help.push_back(i - least);
+        // for (int i = 0; i < ans; ++i)
+        //     nums[i] = help[i];
+        int j = 0;
+        for (int i = 0; i < N; ++i) {
+            if (hsh[i]) {
+                ans++, nums[j++] = (i - least);
+            }
+        }
         return ans;
     }
 };
