@@ -5,7 +5,7 @@ class Solution {
             if ((!log.equals("../")) && (!log.equals("./"))) {
                 ans++;
             } else if (log.equals("../")) {
-                ans = (ans <= 0) ? 0 : ans - 1;
+                ans = (ans == 0) ? 0 : ans - 1;
             }
         }
         return ans;
