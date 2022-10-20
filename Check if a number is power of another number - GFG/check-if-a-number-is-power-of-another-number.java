@@ -28,19 +28,22 @@ class GFG
 class Solution{
     static Long isPowerOfAnother(Long X, Long Y){
         // code here
-        if (Y == 1) return 1L;
-        if (X == Y) return 1L;
+
+        // edge case 1
+        if (Y == 1 || X == Y) return 1L;
+
+        // edge case 2
         if (X == 1L) {
             if (Y == 1L) return 1L;
             return 0L;
-        } else {
-            while (Y != 0L) {
-                Long r = Y % X;
-                if (r != 0L) return 0L;
-                Y /= X;
-                if (Y == X) return 1L;
-            }
-            return 0L;
         }
+
+        while (Y != 0L) {
+            Long r = Y % X;
+            if (r != 0L) return 0L;
+            Y /= X;
+            if (Y == X) return 1L;
+        }
+        return 0L;
     }
 }
