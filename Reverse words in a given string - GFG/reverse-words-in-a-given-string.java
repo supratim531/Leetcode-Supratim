@@ -28,6 +28,7 @@ class Solution
         // code here
         String build = "";
         List<String> help = new ArrayList<>();
+
         for (int i = 0; i < S.length(); ++i) {
             char ch = S.charAt(i);
             if (ch == '.') {
@@ -38,13 +39,16 @@ class Solution
             }
         }
         help.add(build);
-        Collections.reverse(help);
+
         String ans = "";
+        Collections.reverse(help);
+
         for (String str : help)
             ans += (str + ".");
-        // System.out.println("DEBUG: " + ans);
+
         StringBuilder ansClone = new StringBuilder(ans);
         ansClone.deleteCharAt(ans.length() - 1);
-        return ansClone.toString();
+        ans = ansClone.toString();
+        return ans;
     }
 }
