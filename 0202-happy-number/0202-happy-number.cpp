@@ -1,25 +1,21 @@
-map<int, int> mp;
+unordered_set<int> s;
 
-bool number_found(int n) {
-    return mp.find(n) != mp.end();
-}
-
-int number_sum(int n) {
-    int sum = 0;
+int formula(int n) {
+    int ans = 0;
     while (n)
-        sum += (pow(n % 10, 2)), n /= 10;
-    return sum;
+        ans += pow(n % 10, 2), n /= 10;
+    return ans;
 }
 
 class Solution {
 public:
     bool isHappy(int n) {
-        mp.clear();
+        s.clear();
+        s.insert(n);
         while (n != 1) {
-            mp[n] = 1;
-            n = number_sum(n);
-            if (number_found(n))
-                return false;
+            n = formula(n);
+            if (s.find(n) != s.end()) return false;
+            s.insert(n);
         }
         return true;
     }
