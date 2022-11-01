@@ -21,6 +21,7 @@ public:
         vector<int> ans;
         int lb, ub, n = nums.size();
         sort(nums.begin(), nums.end());
+        
         if (nums[0] != 1) {
             lb = 1, ub = nums[0] - 1;
             for (int i = lb; i <= ub; ++i)
